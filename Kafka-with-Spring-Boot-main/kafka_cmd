@@ -1,0 +1,20 @@
+Strat Zookeeper server
+zookeeper-server-start.bat C:\kafka_2.11-2.2.0\config\zookeeper.properties
+
+Strat Kafka server
+kafka-server-start.bat C:\kafka_2.11-2.2.0\config\server.properties
+
+Create Topic
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 -topic javatechie
+
+List down all available topics
+kafka-topics.bat --list --zookeeper localhost:2181
+
+Produce a message
+kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie
+
+Consume a message
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javatechie
+
+Testing Kafka Installation on Windows
+zookeeper-shell.bat localhost:2181 ls /brokers/ids
