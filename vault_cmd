@@ -1,0 +1,16 @@
+https://www.vaultproject.io/downloads
+Note: Download as zip file and set /bin to env variables in your system.
+
+1. Start Vault Server
+vault server -dev
+
+2. Open new commmandline tab and set vault url
+set VAULT_ADDR=http://127.0.0.1:8200
+
+3. Create JSON file under your project and put your sencetive information in the format key values and go to your project location.
+
+4. vault kv put secret/order-service @order-service.json
+
+5. vault get secret/order-service
+
+6. Same do for rest of your all projects.
