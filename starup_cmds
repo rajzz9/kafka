@@ -1,0 +1,50 @@
+
+Strat Zookeeper server
+zookeeper-server-start.bat C:\kafka_2.12-2.5.0\config\zookeeper.properties
+
+Strat Kafka server
+kafka-server-start.bat C:\kafka_2.12-2.5.0\config\server.properties
+
+Start Vault Server
+vault server -dev
+	1. Generate secret key and values for your projects
+		eg: 1. vault kv put secret/product-service @product-service.json
+			2. update secret key in your projects.
+
+Start mongodb server
+mongod
+
+Start keyclock server
+standalone.bat -Djboss.http.port=8180
+
+
+This project is developed using Spring Boot Microservices architecture. In this example - we've used below technologies
+
+Spring Boot v2.4.2
+Spring Cloud API Gateway
+Spring Cloud Config
+Resilient4J
+Keyloak
+Hashicorp Vault
+Spring Security - OAuth2 Client and Resource Server
+Eureaka
+MySQL
+MongoDB
+
+This tutorial doesn't cover setup of Hashicorp locally
+
+Start the Hashicorp
+λ vault server -dev
+λ vault kv put secret/order-service @order-service.json
+λ vault kv put secret/product-service @product-service.json
+λ vault kv put secret/inventory-service-credentials @inventory-service-credentials.json
+C:\Users\pc\Desktop\Microservices Softwares\keycloak-12.0.4\keycloak-12.0.4\bin>standalone.bat -Djboss.http.port=8180
+
+####Sequence To Start the Services###
+configuration-server
+discovery-server
+prodict-service
+order-service
+inventory-service
+notification-service
+api-gateway-service
